@@ -15,7 +15,7 @@
                 <ol>
                     <% for (var i in content) { %>
                         <% var obj = content[i]; %>
-                        <li><a href="<%=obj.link %>"><%= obj.title %></a></li>
+                        <li><%= obj.pubDate %><a href="<%=obj.link %>"><%= obj.title %></a></li>
                         </tr>
                     <% } %>
                 </ol>
