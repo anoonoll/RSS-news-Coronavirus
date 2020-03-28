@@ -17,9 +17,8 @@
                     <% var hash = new Array %>
                     <% for (var i in content) { %>
                         <% var obj = content[i]; %>
-                        <% var NewPubDate = new Date(obj.pubDate) ;
-                            var Week = new Array( "日","月","火","水","木","金","土" );
-                            var date = NewPubDate.getFullYear() + "/" + NewPubDate.getMonth() + "/" + NewPubDate.getDay() + " " + NewPubDate.getHours() + ":" + NewPubDate.getMinutes() + ":" + NewPubDate.getSeconds();
+                        <% 
+                            var date = new Date(obj.pubDate).toLocaleString('ja-JP', {});
                             obj.pubDate = date;
                         %>
                         <% hash.push(obj); %>
