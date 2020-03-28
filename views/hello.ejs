@@ -18,18 +18,24 @@
                     <% for (var i in content) { %>
                         <% var obj = content[i]; %>
                         <% 
-                            var date = new Date(obj.pubDate).toLocaleString('ja-JP', {});
-                            obj.pubDate = date;
+                            var date = new Date(obj.pubDate);
+                            var a = date.toLocaleString('ja-JP', {era:'long'});                            
+                            obj.pubDate = a;
                         %>
                         <% hash.push(obj); %>
                     <% } %> 
                     
+                    <% console.log(hash[0].pubDate); %>
                     <% hash.sort(function(a,b) {
                         return (a.pubDate < b.pubDate ? 1 : -1);
                     }); %>
 
                     <% for (var i in hash) { %>
                         <% var obj2 = hash[i] %>
+                        <% 
+                            var b = date.toLocaleString('ja-JP', {era:'long'});                            
+                            obj2.pubDate = b;
+                        %>
                         <li><%= obj2.pubDate %><a href="<%=obj2.link %>"><%= obj2.title %></a></li>
                     <% } %>
 
