@@ -23,8 +23,6 @@
                             var date = NewPubDate.getFullYear() + "/" + NewPubDate.getMonth() + "/" + NewPubDate.getDay() + " " + NewPubDate.getHours() + ":" + NewPubDate.getMinutes() + ":" + NewPubDate.getSeconds();
                             obj.pubDate = date;
                         %>
-                        <li><%= date %><a href="<%=obj.link %>"><%= obj.title %></a></li>
-                        </tr>
                     <% } %> 
 
 
@@ -36,25 +34,8 @@
                     <% for (var i in hash) { %>
                         <% var obj2 = hash[i] %>
                         <li><%= obj2.pubDate %><a href="<%=obj2.link %>"><%= obj2.title %></a></li>
-                        <% console.log(hash); %>
                     <% } %>
 
-                    
-
-                    <!-- よく分からんやつ -->
-                    <% var hash = new Array(); %>
-                    <% var date2; %>
-                    <% for (var i in content) { %>
-                        <% var obj = content[i]; %>
-                        <%
-                            var NewPubDate = new Date(obj.pubDate) ;
-                            var Week = new Array( "日","月","火","水","木","金","土" );
-                            var date = NewPubDate.getFullYear() + "/" + NewPubDate.getMonth() + "/" + NewPubDate.getDay();
-                            date2 = date.trim();
-                            hash.push(date2);
-                        %>
-                    <% } %>
-                    <% const ascArray = [...hash].sort((a, b) => new Date(a) - new Date(b)); %>
                 </ol>
             <% } %>
         </div>
