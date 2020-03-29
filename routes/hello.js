@@ -8,7 +8,7 @@ router.get('/',(req, res, next) => {
     var opt = {
         host: 'news.google.com',
         port: 443,
-        path: '/rss/search?q=corona&q=korona&hl=ja&gl=JP&ceid=JP:ja'
+        path: '/rss/search?q=corona&q=Coronavirus&hl=ja&gl=JP&ceid=JP:ja'
     };
     http.get(opt, (res2) => {
         var body = '';
