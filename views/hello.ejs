@@ -24,35 +24,35 @@
         </header>
         <div role="main">
             <% if (content != null) { %>
-                <ol>
-
+                    <!-- 配列を作成 -->
                     <% var hash = new Array %>
+
+                    <!-- xmlのitemをループ処理する -->
                     <% for (var i in content) { %>
-                        <% var obj = content[i]; %>
-                        <% 
-                            var date = new Date(obj.pubDate);
-                            console.log(date);                          
-                            obj.pubDate = date;
-                        %>
+                        <% var obj = content[i]; %>  
+                        <!-- itemを配列へ追加 -->        
                         <% hash.push(obj); %>
                     <% } %> 
 
+                    <!-- 配列をソートして日付順に変更 -->
                     <% hash.sort(function(a,b) {
                         return (a.pubDate < b.pubDate ? 1 : -1);
                     }); %>
 
+                    <!-- 配列をループ処理 -->
                     <% for (var i in hash) { %>
                         <% var obj2 = hash[i] %>
+
+                        <!-- 日付の表示形式を変更 -->
                         <% 
                             var date2 = new Date(obj2.pubDate);
                             var b = date2.toLocaleString('ja-JP', {era:'long'});                            
                             obj2.pubDate = b;
                         %>
+                        <!-- 西暦を削除 -->
                         <% var obj3_pubDate = obj2.pubDate.replace('西暦2020年', ''); %>
-                        <% console.log(obj2.title); %>
-                        <% var obj3_title = obj2.title.join(',').slice(0,40); %>
-                        <% console.log(obj3_title); %>
 
+                        <!-- 表示 -->
                         <div class="center">
                             <ul>
                                 <li>
@@ -63,10 +63,7 @@
                                 </li>
                             </ul>
                         </div>
-
                     <% } %>
-
-                </ol>
             <% } %>
         </div>
     </body>
