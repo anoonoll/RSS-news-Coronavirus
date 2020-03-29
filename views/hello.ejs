@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title><%= title %></title>
         <link rel='stylesheet' href="/stylesheets/style.css" />
@@ -24,7 +25,7 @@
                         %>
                         <% hash.push(obj); %>
                     <% } %> 
-                    
+
                     <% hash.sort(function(a,b) {
                         return (a.pubDate < b.pubDate ? 1 : -1);
                     }); %>
@@ -36,6 +37,8 @@
                             var b = date2.toLocaleString('ja-JP', {era:'long'});                            
                             obj2.pubDate = b;
                         %>
+                        <% console.log(obj2.pubDate); %>
+                        
                         <li><%= obj2.pubDate %><a href="<%=obj2.link %>"><%= obj2.title %></a></li>
                     <% } %>
 
