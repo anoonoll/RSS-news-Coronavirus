@@ -19,7 +19,8 @@ router.get('/',(req, res, next) => {
             parseString(body.trim(), (err, result) => {
                 var data = {
                     title: 'コロナウイルスの最新情報を表示します',
-                    content: result.rss.channel[0].item
+                    content: result.rss.channel[0].item,
+                    update: result.rss.channel[0].lastBuildDate
                 };
                 res.render('hello', data);
             })

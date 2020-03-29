@@ -4,5 +4,43 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ol {
+  padding: 0;
+}
+
+li {
+  background-color: #64aada;
+  margin: 10px;
+  border-radius: 40px;
+}
+
+li:hover {
+  background-color: rgba(196, 198, 201, 0.822);
+}
+
+li a {
+  color: aliceblue;
+  display: block;
+  padding: 25px;
+}
+
+li a:hover {
+  color: black;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.title {
+  padding: 10px;
+  font-size: 15px;
 }

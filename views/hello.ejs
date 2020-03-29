@@ -6,10 +6,21 @@
         <title><%= title %></title>
         <link rel='stylesheet' href="/stylesheets/style.css" />
     </head>
+
+    <div class="style">
+        <!-- 更新日時を日本語へ変更する -->
+        <% var update2 = new Date(update);
+           var update3 = update2.toLocaleString('ja-JP', {era:'long'});                            
+           update = update3;
+        %>
+        <!-- 更新日時の西暦を消す -->
+        <% var update4 = update.replace('西暦2020年', ''); %>
+
+    </div>
     
     <body>
         <header>
-            <h1><%= title %></h1>
+            <h1><%= title %>更新(<%= update4 %>)</h1>
         </header>
         <div role="main">
             <% if (content != null) { %>
@@ -37,9 +48,22 @@
                             var b = date2.toLocaleString('ja-JP', {era:'long'});                            
                             obj2.pubDate = b;
                         %>
-                        <% console.log(obj2.pubDate); %>
-                        
-                        <li><%= obj2.pubDate %><a href="<%=obj2.link %>"><%= obj2.title %></a></li>
+                        <% var obj3_pubDate = obj2.pubDate.replace('西暦2020年', ''); %>
+                        <% console.log(obj2.title); %>
+                        <% var obj3_title = obj2.title.join(',').slice(0,40); %>
+                        <% console.log(obj3_title); %>
+
+                        <div class="center">
+                            <ul>
+                                <li>
+                                    <a href="<%=obj2.link %>">
+                                        <div class="Date"><%=obj3_pubDate %></div>
+                                        <div class="title"><%="   " + obj2.title %></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
                     <% } %>
 
                 </ol>
